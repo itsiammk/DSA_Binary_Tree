@@ -37,15 +37,18 @@ BinaryTreeNode* takeInput(){
     }
     return root;
 }
-
+int totalNodes(BinaryTreeNode* root){
+    if(not root)return 0;
+    int leftSum = totalNodes(root->left);
+    int rightSum = totalNodes(root->right);
+    return leftSum + rightSum + 1;
+}
 int main(){
-    // BinaryTreeNode* root = new BinaryTreeNode(1);
-    // BinaryTreeNode* node1 = new BinaryTreeNode(2);
-    // BinaryTreeNode* node2 = new BinaryTreeNode(3);
-    // root->left = node1;
-    // root->right = node2;
+    // 1 2 3 4 5 6 7 -1 -1 -1 -1 8 9 -1 -1 -1 -1 -1 -1
     BinaryTreeNode* root = takeInput();
     printBinaryTree(root);
+    cout<<endl;
+    cout<<"Total Nodes in Tree are: "<<totalNodes(root);
     cout<<endl;
 
     return 0;
