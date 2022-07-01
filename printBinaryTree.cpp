@@ -16,6 +16,7 @@ int main(){
     root->left = node1;
     root->right = node2;
     printBinaryTree(root);
+    cout<<endl;
 
     return 0;
 }
